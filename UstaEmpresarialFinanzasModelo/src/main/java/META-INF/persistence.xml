@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="FinanzasModelo">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/env/jdbc/usta</jta-data-source>
+		<class>co.com.ustaempresarial.finanzas.modelo.PlanContable</class>
+		<class>co.com.ustaempresarial.finanzas.modelo.Concepto</class>
+		<class>co.com.ustaempresarial.finanzas.modelo.LibroDiario</class>
+		<class>co.com.ustaempresarial.finanzas.modelo.LibroMayor</class>
+		<class>co.com.ustaempresarial.finanzas.modelo.LibroMayorPK</class>
+		<class>co.com.ustaempresarial.finanzas.modelo.Periodo</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		<properties>
+			<property name="hibernate.connection.driver_class"
+				value="net.sourceforge.jtds.jdbc.Driver" />
+		</properties>
+	</persistence-unit>
+</persistence>

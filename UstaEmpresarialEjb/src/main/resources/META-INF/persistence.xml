@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="facturacion"
+		transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/env/jdbc/facturacion</jta-data-source>
+		<mapping-file>META-INF/facturacion-orm.xml</mapping-file>
+		<class>co.com.facturacion.modelo.CategoriaProducto</class>
+		<class>co.com.facturacion.modelo.Cliente</class>
+		<class>co.com.facturacion.modelo.Producto</class>
+		<class>co.com.facturacion.modelo.ProductoStock</class>
+		<class>co.com.facturacion.modelo.Proveedor</class>
+		<class>co.com.facturacion.modelo.ProveedorProducto</class>
+		<class>co.com.facturacion.modelo.ProveedorProductoPK</class>
+		<class>co.com.facturacion.modelo.UsuarioLogin</class>
+		<class>co.com.facturacion.modelo.Venta</class>
+		<class>co.com.facturacion.modelo.VentaDetalle</class>
+		<class>co.com.facturacion.modelo.VentaDetallePK</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		<properties>
+			<property name="hibernate.connection.driver_class"
+				value="org.postgresql.Driver" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.PostgreSQL82Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="UstaEmpresarialParientes" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/env/jdbc/familia</jta-data-source>
+		<mapping-file>META-INF/familia-orm.xml</mapping-file>
+			<class>co.com.UstaEmpresarial.familia.modelo.Pariente</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		<properties>
+			<property name="hibernate.connection.driver_class"
+				value="org.postgresql.Driver" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.PostgreSQL82Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="UstaEmpresarialParientes"
+		transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/env/jdbc/seguridad</jta-data-source>
+		<mapping-file>META-INF/seguridad-orm.xml</mapping-file>
+		<class>co.com.ustaempresarial.seguridad.modelo.Permiso</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.Rol</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.RolPermiso</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.RolPermisoPK</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.RolUsuario</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.RolUsuarioPK</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.Usuario</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.UsuarioLog</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		<properties>
+			<property name="hibernate.connection.driver_class"
+				value="org.postgresql.Driver" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.PostgreSQL82Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
+		</properties>
+	</persistence-unit>
+</persistence>

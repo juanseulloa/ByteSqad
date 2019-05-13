@@ -4,6 +4,7 @@ import java.util.List;
 
 import co.com.facturacion.modelo.CategoriaProducto;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
+import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 
 public interface SeguridadFachada {
 	
@@ -45,5 +46,16 @@ public interface SeguridadFachada {
 	 * @throws Exception
 	 */
 	public List<Usuario> buscarUsuarioPorNombre(String nombre) throws Exception;
+	//************************Usuario_Log*********************************************
+		public List<UsuarioLog> listarUsuarioLog() throws Exception;
+
+		public void crearUsuarioLog(UsuarioLog usuarioLog) throws Exception;
+
+		public UsuarioLog editarUsuarioLog(UsuarioLog usuarioLog) throws Exception;
+
+		public boolean eliminarUsuarioLog(int codigo) throws Exception;
+		
+		public UsuarioLog buscarUsuarioLog(int codigo) throws Exception; 
+	//********************************************************************************	
 	
 }

@@ -14,6 +14,7 @@ import javax.persistence.Query;
 import co.com.facturacion.modelo.CategoriaProducto;
 import co.com.ustaempresarial.fachada.SeguridadFachada;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
+import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 
 
 @Stateless
@@ -85,5 +86,60 @@ public class SeguridadBean implements SeguridadFachada{
 		return usuario;
 		
 	}
+	//****************************************Usuariolog******************************************
+		@Override
+		public List<UsuarioLog> listarUsuarioLog() throws Exception {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public void crearUsuarioLog(UsuarioLog usuarioLog) throws Exception {		
+				if(usuarioLog.getProceso() != null && !usuarioLog.getProceso().equals("")) {
+					em.persist(usuarioLog);
+				}
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public UsuarioLog editarUsuarioLog(UsuarioLog usuarioLog) throws Exception {
+		      UsuarioLog objUsuarioLog;
+		      objUsuarioLog =new UsuarioLog();
+		      if(usuarioLog != null) {
+		    	  objUsuarioLog = buscarUsuarioLog(usuarioLog.getCodigo());
+		    	  em.merge(usuarioLog);
+		      }else {
+		    	  usuarioLog = null;
+		      }
+				// TODO Auto-generated method stub
+				
+			return null;
+		}
+
+		@Override
+		public boolean eliminarUsuarioLog(int codigo) throws Exception {
+			UsuarioLog objUsuarioLog;
+			objUsuarioLog = new UsuarioLog();
+			boolean retorno;
+			objUsuarioLog = buscarUsuarioLog(codigo);
+			retorno = false;
+			if(objUsuarioLog.getCodigo()>0) {
+				em.remove(objUsuarioLog);
+				retorno= true;
+			}
+			return retorno;
+		}
+
+		@Override
+		public UsuarioLog buscarUsuarioLog(int codigo) throws Exception {
+			UsuarioLog objUsuarioLog;
+			objUsuarioLog = new UsuarioLog();
+			objUsuarioLog = em.find(UsuarioLog.class, codigo);
+			// TODO Auto-generated method stub
+			return objUsuarioLog;
+		}
+		
+	//*************************************************************************************************
 
 }

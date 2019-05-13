@@ -11,6 +11,8 @@ import javax.ejb.TransactionAttributeType;
 
 import co.com.facturacion.modelo.CategoriaProducto;
 import co.com.ustaempresarial.fachada.SeguridadFachada;
+import co.com.ustaempresarial.seguridad.modelo.Permiso;
+import co.com.ustaempresarial.seguridad.modelo.Rol;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 
@@ -62,6 +64,51 @@ public class SeguridadSevicio {
 			return objSeguridad.buscarUsuarioLog(codigo);
 		}
 	//******************************************************************************************
-	
+	//************************************Rol************************************************
+		public List<Rol> listarRol() throws Exception {
+			return objSeguridad.listarRol();
+		}
+
+		public void crearRol(Rol rol) throws Exception {
+			objSeguridad.crearRol(rol);
+		}
+
+		public Rol editarRol(Rol rol) throws Exception {
+			return objSeguridad.editarRol(rol);
+		}
+
+		public boolean eliminarRol(int codigo) throws Exception {
+			return objSeguridad.eliminarRol(codigo);
+		}
+
+		public Rol buscarRol(int codigo) throws Exception {
+			return objSeguridad.buscarRol(codigo);
+		}
+	//*****************************************************************************************
+		//*************************************Permiso**********************************************
+
+		public List<Permiso> listarPermiso() throws Exception {
+			return objSeguridad.listarPermiso();
+		}
+
+		public void crearPermiso(Permiso permiso) throws Exception {
+			objSeguridad.crearPermiso(permiso);
+		}
+
+		public Permiso editarPermiso(Permiso permiso) throws Exception {
+			return objSeguridad.editarPermiso(permiso);
+		}
+
+		public boolean eliminarPermiso(int codigo) throws Exception {
+			return objSeguridad.eliminarPermiso(codigo);
+		}
+
+		public Permiso buscarPermiso(int codigo) throws Exception {
+			return objSeguridad.buscarPermiso(codigo);
+		}
+		
+	//**************************************************************************************	
+
+		
 	
 }

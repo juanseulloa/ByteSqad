@@ -13,6 +13,8 @@ import javax.persistence.Query;
 
 import co.com.facturacion.modelo.CategoriaProducto;
 import co.com.ustaempresarial.fachada.SeguridadFachada;
+import co.com.ustaempresarial.seguridad.modelo.Permiso;
+import co.com.ustaempresarial.seguridad.modelo.Rol;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 
@@ -141,5 +143,123 @@ public class SeguridadBean implements SeguridadFachada{
 		}
 		
 	//*************************************************************************************************
+		//************************************Rol*****************************************************
+		@Override
+		public List<Rol> listarRol() throws Exception {
+			List<Rol> rolList;
+			Query q;
+			
+			rolList = new ArrayList<Rol>();
+			
+			return null;
+		}
 
+		@Override
+		public void crearRol(Rol rol) throws Exception {
+			if (rol.getNombre() != null && !rol.getNombre().equals("")) {
+				if (rol.getDescripcion() != null && !rol.getDescripcion().equals("")) {
+					em.persist(rol);
+				}
+			} else {
+
+			}
+
+		}
+
+		@Override
+		public Rol editarRol(Rol rol) throws Exception {
+			Rol objRol;
+			objRol = new Rol();
+			if (objRol != null) {
+				objRol = buscarRol(objRol.getCodigo());
+				em.merge(objRol);
+			} else {
+			 objRol = null;	
+			}
+
+			return objRol;
+		}
+
+		@Override
+		public boolean eliminarRol(int codigo) throws Exception {
+			Rol objRol;
+			boolean retorno;
+			
+			objRol = buscarRol(codigo);
+			retorno = false;
+			if (objRol.getCodigo() > 0) {
+				em.remove(objRol);
+				retorno = true;
+			}
+			return retorno;
+		}
+
+		@Override
+		public Rol buscarRol(int codigo) throws Exception {
+			Rol objRol;
+			objRol = new Rol();
+			objRol = em.find(Rol.class, codigo);
+			return objRol;
+
+		}
+
+	//********************************************************************************************
+		//**************************************Permiso****************************************************
+		@Override
+		public List<Permiso> listarPermiso() throws Exception {
+			List<Permiso> rolList;
+			Query q;
+
+			rolList = new ArrayList<Permiso>();
+
+			return null;
+		}
+
+		@Override
+		public void crearPermiso(Permiso permiso) throws Exception {
+			if (permiso.getNombre() != null && !permiso.getNombre().equals("")) {
+				if (permiso.getDescripcion() != null && !permiso.getDescripcion().equals("")) {
+					em.persist(permiso);
+				}
+			}
+
+		}
+
+		@Override
+		public Permiso editarPermiso(Permiso permiso) throws Exception {
+			Permiso objPermiso;
+			objPermiso = new Permiso();
+			if (objPermiso != null) {
+				objPermiso = buscarPermiso(objPermiso.getCodigo());
+				em.merge(objPermiso);
+			} else {
+				objPermiso = null;
+			}
+
+			return objPermiso;
+		}
+
+		@Override
+		public boolean eliminarPermiso(int codigo) throws Exception {
+			Permiso objPermiso;
+			boolean retorno;
+
+			objPermiso = buscarPermiso(codigo);
+			retorno = false;
+			if (objPermiso.getCodigo() > 0) {
+				em.remove(objPermiso);
+				retorno = true;
+			}
+			return retorno;
+		}
+
+		@Override
+		public Permiso buscarPermiso(int codigo) throws Exception {
+			Permiso objPermiso;
+			objPermiso = new Permiso();
+			objPermiso = em.find(Permiso.class, codigo);
+			return objPermiso;
+		}
+	//*********************************************************************************************	
+		
 }

@@ -3,6 +3,8 @@ package co.com.ustaempresarial.fachada;
 import java.util.List;
 
 import co.com.facturacion.modelo.CategoriaProducto;
+import co.com.ustaempresarial.seguridad.modelo.Permiso;
+import co.com.ustaempresarial.seguridad.modelo.Rol;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 
@@ -56,6 +58,29 @@ public interface SeguridadFachada {
 		public boolean eliminarUsuarioLog(int codigo) throws Exception;
 		
 		public UsuarioLog buscarUsuarioLog(int codigo) throws Exception; 
-	//********************************************************************************	
+	//********************************************************************************
+		//--------------rol-----------------------------------------------------------
+		public List<Rol> listarRol() throws Exception;
+
+		public void crearRol(Rol rol) throws Exception;
+
+		public Rol editarRol(Rol rol) throws Exception;
+
+		public boolean eliminarRol(int codigo) throws Exception;
+		
+		public Rol buscarRol(int codigo) throws Exception; 
+	//--------------------------------------------------------------------------------
+	//******************************Permiso*******************************************
+		public List<Permiso> listarPermiso() throws Exception;
+
+		public void crearPermiso(Permiso permiso) throws Exception;
+
+		public Permiso editarPermiso(Permiso permiso) throws Exception;
+
+		public boolean eliminarPermiso(int codigo) throws Exception;
+		
+		public Permiso buscarPermiso(int codigo) throws Exception; 
+	//*************************************************************************************
+		
 	
 }

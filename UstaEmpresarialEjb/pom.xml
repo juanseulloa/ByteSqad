@@ -48,15 +48,23 @@
 		</dependency>
 		<dependency>
 			<groupId>UstaEmpresarial</groupId>
-			<artifactId>UstaEmpresarialParientesModelo</artifactId>
+			<artifactId>ParientesModelo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>UstaEmpresarial</groupId>
+			<artifactId>NominaModelo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>UstaEmpresarialNominaModelo</groupId>
-			<artifactId>UstaEmpresarialNominaModelo</artifactId>
+			<groupId>UstaEmpresarial</groupId>
+			<artifactId>SeguridadModelo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
